@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
 from logging import getLogger, config, StreamHandler, DEBUG
 import os
 
@@ -19,7 +20,23 @@ logger.addHandler(handler)
 logger.propagate = False
 
 if __name__ == '__main__':
-  print('Hello Python on Docker!!')
-  logger.info('This is logger message!!')
-  # .envの取得
-  # setting.ENV_DIC[ImportEnvKeyEnum.importenvに書いた値.value]
+  now = datetime.now()
+  date_s = (now.strftime('%Y-%m-%d %H:%M:%S.%f'))
+
+  logger.info(now)
+  logger.info(date_s)
+
+  # unixtimeに変換する。float()が戻ってくる。
+  logger.info(now.timestamp())
+
+  # unixtime（マイクロ秒） -> date変換する
+  # 1625900408684995
+  # 秒とミリ秒の間に「.」を入れる必要がある。
+  logger.info(datetime.fromtimestamp(float('1625900408.684995')))
+
+  # マイクロ秒 -> ミリ秒変換する
+  # 後でやる
+  
+  
+  # 2021-07-08T23:40:59.962933+00:00
+  # 後でやる
