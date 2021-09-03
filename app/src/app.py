@@ -25,6 +25,7 @@ if __name__ == '__main__':
 
   logger.info(now)
   logger.info(date_s)
+  logger.info(type(now))
 
   # unixtimeに変換する。float()が戻ってくる。
   logger.info(now.timestamp())
